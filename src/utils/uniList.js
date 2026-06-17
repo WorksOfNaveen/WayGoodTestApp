@@ -1,4 +1,9 @@
-export const uniList = [
+export function sendList(page, pageSize) {
+  const start = (page - 1) * pageSize;
+  uniList.sort((a, b) => a.worldRanking - b.worldRanking);
+  return uniList.slice(start, start + pageSize);
+}
+const uniList = [
   {
     id: 1,
 
