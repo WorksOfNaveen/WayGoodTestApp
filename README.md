@@ -138,6 +138,39 @@ WayGoodTestApp/
 | `npm test`        | Run Jest tests                 |
 | `npm run lint`    | Run ESLint                     |
 
+## Releases (APK)
+
+Release APKs are published automatically to [GitHub Releases](https://github.com/WorksOfNaveen/WayGoodTestApp/releases) via GitHub Actions. No GitHub CLI is required.
+
+### Option 1: Push a version tag
+
+```sh
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+The workflow builds the release APK and attaches `WayGoodTestApp-v1.0.0.apk` to the release.
+
+### Option 2: Run the workflow manually
+
+1. Open **Actions** → **Build and Release APK** in the GitHub repository.
+2. Click **Run workflow**.
+3. Enter a version (for example `1.0.0`) and run it.
+
+### Build APK locally
+
+```sh
+npm install
+cd android
+./gradlew assembleRelease
+```
+
+The unsigned release APK is generated at:
+
+`android/app/build/outputs/apk/release/app-release.apk`
+
+See [CONTRIBUTORS.md](CONTRIBUTORS.md) for project contributors.
+
 ## Troubleshooting
 
 If you run into build or runtime issues, see the official [React Native Troubleshooting guide](https://reactnative.dev/docs/troubleshooting).
